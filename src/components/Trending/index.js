@@ -1,12 +1,13 @@
 import {FaSearch} from 'react-icons/fa'
 
 import {GrFormClose} from 'react-icons/gr'
+import {AiFillFire} from 'react-icons/ai'
 
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 import Menu from '../MenuSection'
-import VideoItem from '../VideoItem'
+import TrendingVideoItem from '../TrendingVideoItem'
 
 import {
   HomeContainer,
@@ -21,9 +22,9 @@ import {
   HomeSearchContainer,
   SearchIconBtn,
   VideosContainer,
-} from './styledComponents'
+} from './styledComponent'
 
-class Home extends Component {
+class Trending extends Component {
   state = {isDark: false, searchVal: '', videosList: []}
 
   componentDidMount() {
@@ -33,7 +34,7 @@ class Home extends Component {
   renderVideos = async () => {
     const jwtToken = Cookies.get('jwt_token')
     const {searchVal} = this.state
-    const url = `https://apis.ccbp.in/videos/all?search=${searchVal}`
+    const url = 'https://apis.ccbp.in/videos/trending'
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -56,56 +57,25 @@ class Home extends Component {
     this.setState({videosList})
   }
 
-  onSearchInput = event => {
-    this.setState({searchVal: event.target.value}, this.renderVideos)
-  }
-
-  onSearchSubmit = () => {
-    this.renderVideos()
-  }
-
   renderPremiumImg = () => (
     <PremiumSubContainer>
       <PremiumLogoContainer>
-        <Logo
-          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-          alt="logo"
-        />
-        <GrFormClose size={25} />
+        <AiFillFire size={40} color=" #ff0b37" />
       </PremiumLogoContainer>
-      <PremiumTitle>Buy Nxt Watch Premium Prepaid Plans with UPI</PremiumTitle>
-      <GetNowBtn>GET IT NOW</GetNowBtn>
+      <PremiumTitle> Trending </PremiumTitle>
     </PremiumSubContainer>
   )
-
-  renderHomeContent = () => {
-    const {searchVal} = this.state
-    return (
-      <HomeContentContainer data-testid="home">
-        <HomeSearchContainer>
-          <HomeSearch
-            placeholder="Search"
-            onChange={this.onSearchInput}
-            value={searchVal}
-          />
-          <SearchIconBtn
-            data-testid="searchButton"
-            type="button"
-            onSubmit={this.onSearchSubmit}
-          >
-            <FaSearch size={15} />
-          </SearchIconBtn>
-        </HomeSearchContainer>
-      </HomeContentContainer>
-    )
-  }
 
   renderVideosList = () => {
     const {videosList} = this.state
     return (
       <VideosContainer>
         {videosList.map(video => (
-          <VideoItem videoDet={video} key={video.id} />
+          <TrendingVideoItem
+            videoDet={video}
+            key={video.id}
+            isTrending="true"
+          />
         ))}
       </VideosContainer>
     )
@@ -124,7 +94,6 @@ class Home extends Component {
           <Menu />
           <VideosSection>
             {this.renderPremiumImg()}
-            {this.renderHomeContent()}
             {this.renderVideosList()}
           </VideosSection>
         </HomeContainer>
@@ -133,4 +102,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default Trending

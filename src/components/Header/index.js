@@ -38,7 +38,11 @@ class Header extends Component {
       <Navbar bgColor={bgColor}>
         <Logo src={logo} alt="logo" />
         <MenuContainer>
-          <ThemeButton type="button" onClick={this.changeTheme}>
+          <ThemeButton
+            type="button"
+            onClick={this.changeTheme}
+            data-testid="theme"
+          >
             {isDark ? (
               <GoLightBulb size={30} color={logoColor} />
             ) : (

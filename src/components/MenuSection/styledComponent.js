@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const MenuContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   background-color: ${props => props.bgColor};
   width: 20vw;
@@ -13,6 +13,13 @@ export const MenuContainer = styled.div`
   @media screen and (max-width: 768px) {
     display: none;
   }
+`
+
+export const MenuSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 `
 export const MenuItem = styled.div`
   display: flex;
@@ -31,4 +38,24 @@ export const MenuTitle = styled.button`
   cursor: pointer;
   outline: none;
   background-color: transparent;
+`
+export const ContactsTitle = styled.h1`
+  color: #1e293b;
+  font-size: 18px;
+`
+export const LogoContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+`
+export const Logo = styled.img`
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+`
+export const ContactDesc = styled.p`
+  color: #475569;
+  font-size: 16px;
+  font-weight: 500;
 `

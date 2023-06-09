@@ -88,27 +88,29 @@ export const VideosSection = styled.div`
   height: 100%;
 `
 export const PremiumSubContainer = styled.div`
-  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png ');
+  background-color: #f1f1f1;
   background-size: cover;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   padding: 20px;
   margin-top: 15px;
 `
 export const PremiumLogoContainer = styled.div`
-  width: 100%;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
   display: flex;
-  justify-content: space-between;
-  align-items: items;
+  justify-content: center;
+  align-items: center;
+  background-color: #cbd5e1;
 `
 export const PremiumTitle = styled.p`
-  color: #475569;
-  font-size: 18px;
-  width: 40%;
-  font-weight: 500;
+  color: #212121;
+  font-size: 22px;
+  font-weight: 700;
+  margin-left: 20px;
 `
 export const GetNowBtn = styled.button`
   padding: 10px;
@@ -147,8 +149,9 @@ export const VideosContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   background-color: #f1f1f160;
+  padding: 25px;
 `

@@ -2,25 +2,30 @@ import styled from 'styled-components'
 
 export const VideoItemContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
-  width: 95%;
-  max-width: 600px;
-  margin: 25px;
-  @media screen and (min-width: 768px) {
-    max-width: 330px;
+  width: 90vw;
+  max-width: 1000px;
+  padding: 25px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
   }
 `
 export const ThumbNail = styled.img`
-  width: 100%;
+  width: 50%;
+  max-height: 300px;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
 `
 export const ProfileCont = styled.div`
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  padding: 20px;
+  align-items: flex-start;
+  width: 50%;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
 `
 export const ProfileImg = styled.img`
   width: 50px;
@@ -37,7 +42,6 @@ export const TitleContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-
   margin-left: 20px;
 `
 export const ChannelName = styled.h1`

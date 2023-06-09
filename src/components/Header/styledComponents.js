@@ -25,6 +25,7 @@ export const MenuContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding-right: 30px;
 `
 
 export const ThemeButton = styled.button`
