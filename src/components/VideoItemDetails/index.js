@@ -8,6 +8,7 @@ import Cookies from 'js-cookie'
 import {formatDistanceToNow} from 'date-fns'
 import Header from '../Header'
 import Menu from '../MenuSection'
+import NxtContext from '../../context/NxtContext'
 
 import {
   HomeContainer,
@@ -19,7 +20,9 @@ import {
   VideoDetailsContainer,
   ViewsContainer,
   ReactionsContainer,
-  ReactionBtn,
+  LikeBtn,
+  DislikeBtn,
+  SaveBtn,
   HorizontalRule,
   ProfileCont,
   ProfileIcon,
@@ -30,7 +33,7 @@ import {
 } from './styledComponent'
 
 class VideoItemDetails extends Component {
-  state = {isDark: false, videoDetails: {}, isLoading: true}
+  state = {videoDetails: {}, isLoading: true, Like: false, Dislike: false}
 
   componentDidMount() {
     this.renderVideos()
@@ -51,7 +54,6 @@ class VideoItemDetails extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
-    console.log(data)
     const videoDetails = {
       id: data.video_details.id,
       channel: {
@@ -75,8 +77,21 @@ class VideoItemDetails extends Component {
     </div>
   )
 
-  renderVideosList = () => {
-    const {videoDetails} = this.state
+  onLikeReaction = () => {
+    this.setState({
+      Like: true,
+      Dislike: false,
+    })
+  }
+
+  onDislikeReaction = () => {
+    this.setState({Like: false, Dislike: true})
+  }
+
+  renderVideosList = (isDark, saveVideo, savedVideosList) => {
+    const {videoDetails, Like, Dislike} = this.state
+    const bgColor = isDark ? '#000000' : '#f1f1f160'
+    const textColor = isDark ? '#ffffff' : '#424242'
     const {
       id,
       channel,
@@ -87,36 +102,46 @@ class VideoItemDetails extends Component {
       videoUrl,
       description,
     } = videoDetails
+    const isSaved = savedVideosList.map(each => each.id).includes(id)
+    const saveStyle = isSaved ? '#2563eb ' : ' #64748b '
+    const likeStyle = Like ? '#2563eb ' : ' #64748b '
+    const dislikeStyle = Dislike ? '#2563eb ' : ' #64748b '
+    const saveText = isSaved ? 'Saved' : 'Save'
     const date = new Date(publishedAt)
-    console.log(thumbnailUrl)
     const formattedDate = formatDistanceToNow(date)
+    const onSaveVideo = () => {
+      saveVideo(videoDetails)
+    }
     return (
-      <VideosContainer>
+      <VideosContainer bgColor={bgColor}>
         <VideoPlayer>
           <ReactPlayer url={videoUrl} controls width="95%" />
         </VideoPlayer>
-        <VideoTitle>{title}</VideoTitle>
+        <VideoTitle titleColor={textColor}>{title}</VideoTitle>
         <VideoDetailsContainer>
           <ViewsContainer>
             {viewCount} views . {formattedDate.slice(6)} ago
           </ViewsContainer>
           <ReactionsContainer>
-            <ReactionBtn>
+            <LikeBtn onClick={this.onLikeReaction} likeStyle={likeStyle}>
               <AiOutlineLike size={25} /> Like
-            </ReactionBtn>
-            <ReactionBtn>
+            </LikeBtn>
+            <DislikeBtn
+              onClick={this.onDislikeReaction}
+              dislikeStyle={dislikeStyle}
+            >
               <AiOutlineDislike size={25} /> Dislike
-            </ReactionBtn>
-            <ReactionBtn>
-              <AiOutlineSave size={25} /> Save
-            </ReactionBtn>
+            </DislikeBtn>
+            <SaveBtn onClick={onSaveVideo} saveStyle={saveStyle}>
+              <AiOutlineSave size={25} /> {saveText}
+            </SaveBtn>
           </ReactionsContainer>
         </VideoDetailsContainer>
         <HorizontalRule />
         <ProfileCont>
           <ProfileIcon src={channel.profileImageUrl} alt="profile" />
           <ProfileDetailsCont>
-            <ProfileName>{channel.name}</ProfileName>
+            <ProfileName textColor={textColor}>{channel.name}</ProfileName>
             <Subscribers>{channel.subscriberCount} subscribers</Subscribers>
             <Description>{description}</Description>
           </ProfileDetailsCont>
@@ -126,21 +151,30 @@ class VideoItemDetails extends Component {
   }
 
   render() {
-    const {isDark, isLoading} = this.state
-    const bgColor = isDark ? '#181818' : ' #f9f9f9'
-    const logo = isDark
-      ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-      : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+    const {isLoading} = this.state
     return (
-      <AppContainer bgColor={bgColor}>
-        <Header />
-        <HomeContainer bgColor={bgColor}>
-          <Menu />
-          <VideosSection bgColor={bgColor}>
-            {isLoading ? this.renderLoadingView : this.renderVideosList()}
-          </VideosSection>
-        </HomeContainer>
-      </AppContainer>
+      <NxtContext.Consumer>
+        {value => {
+          const {isDark, saveVideo, savedVideosList} = value
+          const bgColor = isDark ? '#0f0f0f' : '#f9f9f9 '
+          const logo = isDark
+            ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+            : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+          return (
+            <AppContainer bgColor={bgColor} data-testid="videoItemDetails">
+              <Header />
+              <HomeContainer bgColor={bgColor}>
+                <Menu />
+                <VideosSection bgColor={bgColor}>
+                  {isLoading
+                    ? this.renderLoadingView
+                    : this.renderVideosList(isDark, saveVideo, savedVideosList)}
+                </VideosSection>
+              </HomeContainer>
+            </AppContainer>
+          )
+        }}
+      </NxtContext.Consumer>
     )
   }
 }

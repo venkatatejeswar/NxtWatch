@@ -7,7 +7,7 @@ export const MenuContainer = styled.div`
   align-items: flex-start;
   background-color: ${props => props.bgColor};
   width: 20vw;
-  height: 100vh;
+  min-height: 90vh;
   padding: 25px;
   padding-top: 40px;
   @media screen and (max-width: 768px) {

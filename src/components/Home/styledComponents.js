@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+export const AppContainer = styled.div`
+  min-height: 100vh;
+  background-color: ${props => props.bgColor};
+`
+
 export const HomeContainer = styled.div`
   min-height: 100vh;
   display: flex;
@@ -86,6 +91,7 @@ export const VideosSection = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  background-color: ${props => props.bgColor};
 `
 export const PremiumSubContainer = styled.div`
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png ');
@@ -131,16 +137,22 @@ export const HomeSearchContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  background-color: ${props => props.bgColor};
 `
 
 export const HomeSearch = styled.input`
   width: 70%;
   max-width: 460px;
   height: 30px;
+  background-color: transparent;
+  border: 1px solid #616e7c;
 `
 export const SearchIconBtn = styled.button`
   width: 40px;
   height: 30px;
+  border: 1px solid #616e7c;
+  color: ${props => props.iconcolor};
+  background-color: transparent;
 `
 
 export const VideosContainer = styled.div`
@@ -150,5 +162,37 @@ export const VideosContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #f1f1f160;
+  background-color: ${props => props.bgColor};
+`
+export const NoVideosContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.bgColor};
+`
+export const NovideoImage = styled.img`
+  width: 50%;
+`
+export const NoVideoTitle = styled.h1`
+  color: #1e293b;
+  font-size: 32px;
+  color: ${props => props.textColor};
+`
+export const NoVideoDesc = styled.p`
+  color: #475569;
+  font-size: 18px;
+  font-weight: 600;
+`
+export const RetryBtn = styled.button`
+  width: 80px;
+  padding: 8px;
+  background-color: #3b82f6;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #ffffff;
+  border-radius: 3px;
 `

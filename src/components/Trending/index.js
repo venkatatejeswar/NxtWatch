@@ -8,6 +8,7 @@ import Cookies from 'js-cookie'
 import Header from '../Header'
 import Menu from '../MenuSection'
 import TrendingVideoItem from '../TrendingVideoItem'
+import NxtContext from '../../context/NxtContext'
 
 import {
   HomeContainer,
@@ -22,10 +23,11 @@ import {
   HomeSearchContainer,
   SearchIconBtn,
   VideosContainer,
+  AppContainer,
 } from './styledComponent'
 
 class Trending extends Component {
-  state = {isDark: false, searchVal: '', videosList: []}
+  state = {videosList: []}
 
   componentDidMount() {
     this.renderVideos()
@@ -33,7 +35,6 @@ class Trending extends Component {
 
   renderVideos = async () => {
     const jwtToken = Cookies.get('jwt_token')
-    const {searchVal} = this.state
     const url = 'https://apis.ccbp.in/videos/trending'
     const options = {
       headers: {
@@ -57,19 +58,24 @@ class Trending extends Component {
     this.setState({videosList})
   }
 
-  renderPremiumImg = () => (
-    <PremiumSubContainer>
-      <PremiumLogoContainer>
-        <AiFillFire size={40} color=" #ff0b37" />
-      </PremiumLogoContainer>
-      <PremiumTitle> Trending </PremiumTitle>
-    </PremiumSubContainer>
-  )
-
-  renderVideosList = () => {
-    const {videosList} = this.state
+  renderPremiumImg = isDark => {
+    const bgColor = isDark ? '#212121' : '#f1f1f1'
+    const titleColor = isDark ? '#f1f1f1' : '#212121'
     return (
-      <VideosContainer>
+      <PremiumSubContainer bgColor={bgColor} data-testid="banner">
+        <PremiumLogoContainer>
+          <AiFillFire size={40} color=" #ff0b37" />
+        </PremiumLogoContainer>
+        <PremiumTitle titleColor={titleColor}> Trending </PremiumTitle>
+      </PremiumSubContainer>
+    )
+  }
+
+  renderVideosList = isDark => {
+    const {videosList} = this.state
+    const bgColor = isDark ? '#000000' : '#f1f1f160'
+    return (
+      <VideosContainer bgColor={bgColor}>
         {videosList.map(video => (
           <TrendingVideoItem
             videoDet={video}
@@ -82,22 +88,28 @@ class Trending extends Component {
   }
 
   render() {
-    const {isDark} = this.state
-    const bgColor = isDark ? '#181818' : ' #f9f9f9'
-    const logo = isDark
-      ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-      : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
     return (
-      <>
-        <Header />
-        <HomeContainer bgColor={bgColor}>
-          <Menu />
-          <VideosSection>
-            {this.renderPremiumImg()}
-            {this.renderVideosList()}
-          </VideosSection>
-        </HomeContainer>
-      </>
+      <NxtContext.Consumer>
+        {value => {
+          const {isDark} = value
+          const bgColor = isDark ? '#181818' : ' #f9f9f9'
+          const logo = isDark
+            ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+            : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+          return (
+            <AppContainer data-testid="trending" bgColor={bgColor}>
+              <Header />
+              <HomeContainer bgColor={bgColor}>
+                <Menu />
+                <VideosSection>
+                  {this.renderPremiumImg(isDark)}
+                  {this.renderVideosList(isDark)}
+                </VideosSection>
+              </HomeContainer>
+            </AppContainer>
+          )
+        }}
+      </NxtContext.Consumer>
     )
   }
 }

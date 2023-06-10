@@ -27,7 +27,7 @@ export const ProfileImg = styled.img`
   height: 50px;
 `
 export const Title = styled.p`
-  color: #383838;
+  color: ${props => props.fontCol};
   font-size: 14px;
   font-weight: 600;
 `

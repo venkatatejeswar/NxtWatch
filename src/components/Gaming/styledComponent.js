@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+export const AppContainer = styled.div`
+  min-height: 100vh;
+  background-color: ${props => props.bgColor};
+`
+
 export const HomeContainer = styled.div`
   min-height: 100vh;
   display: flex;
@@ -88,7 +93,7 @@ export const VideosSection = styled.div`
   height: 100%;
 `
 export const PremiumSubContainer = styled.div`
-  background-color: #f1f1f1;
+  background-color: ${props => props.bgColor};
   background-size: cover;
   width: 100%;
   display: flex;
@@ -107,7 +112,7 @@ export const PremiumLogoContainer = styled.div`
   background-color: #cbd5e1;
 `
 export const PremiumTitle = styled.p`
-  color: #212121;
+  color: ${props => props.titleColor};
   font-size: 22px;
   font-weight: 700;
   margin-left: 20px;
@@ -152,6 +157,6 @@ export const VideosContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #f1f1f160;
+  background-color: ${props => props.bgColor};
   padding: 25px;
 `

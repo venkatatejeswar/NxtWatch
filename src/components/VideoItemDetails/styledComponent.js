@@ -6,12 +6,11 @@ export const AppContainer = styled.div`
 `
 
 export const HomeContainer = styled.div`
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   background-color: ${props => props.bgColor};
-  padding: 20px;
 `
 
 export const VideosSection = styled.div`
@@ -20,7 +19,7 @@ export const VideosSection = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 90vh;
   background-color: ${props => props.bgColor};
   padding: 20px;
 `
@@ -32,7 +31,7 @@ export const VideosContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: #f1f1f160;
+  background-color: ${props => props.bgColor};
   padding: 50px;
 `
 export const VideoPlayer = styled.div`
@@ -41,7 +40,7 @@ export const VideoPlayer = styled.div`
   margin-bottom: 30px;
 `
 export const VideoTitle = styled.h1`
-  color: #424242;
+  color: ${props => props.titleColor};
   font-size: 18px;
   font-weight: 600;
 `
@@ -62,7 +61,19 @@ export const ReactionsContainer = styled.div`
   justify-content: space-around;
   align-items: center;
 `
-export const ReactionBtn = styled.button`
+export const LikeBtn = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: ${props => props.likeStyle};
+`
+
+export const DislikeBtn = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -72,6 +83,19 @@ export const ReactionBtn = styled.button`
   justify-content: space-between;
   align-items: center;
   color: #606060;
+  color: ${props => props.dislikeStyle};
+`
+export const SaveBtn = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: ${props => props.saveStyle};
+  font-weight: 600;
 `
 export const HorizontalRule = styled.hr`
   color: #606060;
@@ -97,7 +121,7 @@ export const ProfileDetailsCont = styled.div`
 `
 export const ProfileName = styled.h1`
   font-size: 16px;
-  color: #00000095;
+  color: ${props => props.textColor};
 `
 export const Subscribers = styled.p`
   color: #606060;
