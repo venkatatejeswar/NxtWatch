@@ -21,7 +21,6 @@ export const VideosSection = styled.div`
   width: 100%;
   min-height: 90vh;
   background-color: ${props => props.bgColor};
-  padding: 20px;
 `
 
 export const VideosContainer = styled.div`

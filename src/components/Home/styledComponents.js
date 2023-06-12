@@ -11,7 +11,6 @@ export const HomeContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   background-color: ${props => props.bgColor};
-  padding: 20px;
 `
 
 export const Navbar = styled.nav`
@@ -102,7 +101,6 @@ export const PremiumSubContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
-  margin-top: 15px;
 `
 export const PremiumLogoContainer = styled.div`
   width: 100%;

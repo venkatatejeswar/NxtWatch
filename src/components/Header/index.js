@@ -1,11 +1,7 @@
 import {FaMoon} from 'react-icons/fa'
-
 import {GiHamburgerMenu} from 'react-icons/gi'
-
 import {GrLogout} from 'react-icons/gr'
-
-import {GoLightBulb} from 'react-icons/go'
-
+import {CgSun} from 'react-icons/cg'
 import {Component} from 'react'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
@@ -59,7 +55,7 @@ const Header = props => (
               data-testid="theme"
             >
               {isDark ? (
-                <GoLightBulb size={30} color={logoColor} />
+                <CgSun size={30} color={logoColor} />
               ) : (
                 <FaMoon size={30} color={logoColor} />
               )}
@@ -80,7 +76,7 @@ const Header = props => (
               {close => (
                 <PopupContainer>
                   <div>
-                    <p>Are you sure, you want to logout</p>
+                    <p>Are you sure you want to logout?</p>
                   </div>
                   <PopupBtnContainer>
                     <Popupbutton
@@ -123,7 +119,7 @@ const Header = props => (
                       className="trigger-button"
                       onClick={() => close()}
                     >
-                      Close
+                      Cancel
                     </Popupbutton>
                     <PopupLogoutbutton
                       type="button"

@@ -5,6 +5,8 @@ const NxtContext = React.createContext({
   savedVideosList: [],
   saveVideo: () => {},
   changeTheme: () => {},
+  activeItem: 'HOME',
+  onChangeActive: () => {},
 })
 
 export default NxtContext

@@ -65,8 +65,7 @@ class Gaming extends Component {
         viewCount: video.view_count,
       }))
       this.setState({videosList, apiStatus: apiConstants.success})
-    }
-    if (response.status === 401) {
+    } else {
       this.setState({
         apiStatus: apiConstants.failure,
       })
@@ -112,7 +111,7 @@ class Gaming extends Component {
       <FailureVideosContainer bgColor={bgColor}>
         <FailureVideoImage src={image} alt="failure view" />
         <FailureVideoTitle textColor={textColor}>
-          Oops!Something Went Wrong
+          Oops! Something Went Wrong
         </FailureVideoTitle>
         <FailureVideoDesc>
           We are having some trouble to complete your request.

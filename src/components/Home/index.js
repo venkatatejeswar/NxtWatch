@@ -80,8 +80,7 @@ class Home extends Component {
       } else {
         this.setState({videosList, apiStatus: apiConstants.success})
       }
-    }
-    if (response.status === 401) {
+    } else {
       this.setState({
         apiStatus: apiConstants.failure,
       })
@@ -175,7 +174,7 @@ class Home extends Component {
           No Search results found
         </NoVideoTitle>
         <NoVideoDesc>
-          Try different keywords or remove search filter
+          Try different key words or remove search filter
         </NoVideoDesc>
         <RetryBtn onClick={this.onRetry}>Retry</RetryBtn>
       </NoVideosContainer>
@@ -192,7 +191,7 @@ class Home extends Component {
       <NoVideosContainer bgColor={bgColor}>
         <NovideoImage src={image} alt="failure view" />
         <NoVideoTitle textColor={textColor}>
-          Oops!Something Went Wrong
+          Oops! Something Went Wrong
         </NoVideoTitle>
         <NoVideoDesc>
           We are having some trouble to complete your request.

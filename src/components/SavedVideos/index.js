@@ -63,7 +63,7 @@ class SavedVideos extends Component {
           alt="no saved videos"
         />
         <NoVideoTitle textColor={textColor}>No saved videos found</NoVideoTitle>
-        <NoVideoDesc>Save your videos by clicking a button</NoVideoDesc>
+        <NoVideoDesc>You can save your videos while watching them</NoVideoDesc>
       </NoVideosContainer>
     )
   }

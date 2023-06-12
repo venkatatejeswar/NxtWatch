@@ -11,8 +11,15 @@ import NotFound from './components/NotFound'
 import NxtContext from './context/NxtContext'
 import './App.css'
 
+const hamburgerItems = {
+  home: 'home',
+  trending: 'trending',
+  saved: 'saved',
+  gaming: 'gaming',
+}
+
 class App extends Component {
-  state = {savedVideosList: [], isDark: false}
+  state = {savedVideosList: [], isDark: false, activeItem: hamburgerItems.menu}
 
   saveVideo = video => {
     const {savedVideosList} = this.state
@@ -20,6 +27,12 @@ class App extends Component {
     if (!idList.includes(video.id)) {
       this.setState(prevState => ({
         savedVideosList: [...prevState.savedVideosList, video],
+      }))
+    } else {
+      this.setState(prevState => ({
+        savedVideosList: prevState.savedVideosList.filter(
+          each => each.id !== video.id,
+        ),
       }))
     }
   }
@@ -30,15 +43,22 @@ class App extends Component {
     }))
   }
 
+  changeActiveItem = id => {
+    console.log(hamburgerItems[id])
+    this.setState({activeItem: hamburgerItems[id]})
+  }
+
   render() {
-    const {savedVideosList, isDark} = this.state
+    const {savedVideosList, isDark, activeItem} = this.state
     return (
       <NxtContext.Provider
         value={{
           isDark,
           savedVideosList,
+          activeItem,
           saveVideo: this.saveVideo,
           changeTheme: this.changeTheme,
+          onChangeActive: this.changeActiveItem,
         }}
       >
         <Switch>
