@@ -71,7 +71,7 @@ class LoginForm extends Component {
   }
 
   render() {
-    const {showErrMsg, errorMsg} = this.state
+    const {showErrMsg, errorMsg, username, password} = this.state
     const jwtToken = Cookie.get('jwt_token')
     if (jwtToken !== undefined) {
       return <Redirect to="/" />
@@ -91,25 +91,33 @@ class LoginForm extends Component {
                 <LogoContainer>
                   <Logo
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                    alt="logo"
+                    alt="website logo"
                   />
                 </LogoContainer>
                 <InputContainer>
-                  <Label>USERNAME</Label>
+                  <Label htmlFor="username">USERNAME</Label>
                   <Input
                     type="text"
                     placeholder="Username"
                     onChange={this.onUsernameInput}
+                    id="username"
+                    value={username}
                   />
-                  <Label>PASSWORD</Label>
+                  <Label htmlFor="password">PASSWORD</Label>
                   <Input
                     type={passwordType}
                     placeholder="Password"
                     onChange={this.onPasswordInput}
+                    id="password"
+                    value={password}
                   />
                   <CheckBoxCont>
-                    <CheckBox type="checkbox" onChange={this.onShowPassword} />
-                    <CheckLabel colour={checkboxLabel}>
+                    <CheckBox
+                      type="checkbox"
+                      onChange={this.onShowPassword}
+                      id="checkbox"
+                    />
+                    <CheckLabel colour={checkboxLabel} htmlFor="checkbox">
                       Show Password
                     </CheckLabel>
                   </CheckBoxCont>

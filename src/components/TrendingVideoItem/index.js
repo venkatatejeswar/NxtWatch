@@ -10,24 +10,27 @@ import {
   ChannelName,
   TitleContainer,
   ViewsContent,
+  ViewsContainer,
 } from './styledComponents'
 
 const TrendingVideoItem = props => {
-  const {videoDet} = props
+  const {videoDet, isDark} = props
   const {id, channel, publishedAt, thumbnailUrl, title, viewCount} = videoDet
   const date = new Date(publishedAt)
-  const FormatTime = formatDistanceToNow(date)
+  const FormatTime = formatDistanceToNow(date).slice(-7)
+  const fontColor = isDark ? '#ffffff' : '#383838'
   return (
     <Link to={`/videos/${id}`} style={{textDecoration: 'none'}}>
       <VideoItemContainer>
-        <ThumbNail src={thumbnailUrl} alt="thumbnail" />
+        <ThumbNail src={thumbnailUrl} alt="video thumbnail" />
         <ProfileCont>
           <TitleContainer>
-            <Title>{title}</Title>
+            <Title fontColor={fontColor}>{title}</Title>
             <ChannelName>{channel.name}</ChannelName>
-            <ViewsContent>
-              {viewCount} views . {FormatTime.slice(-7)}
-            </ViewsContent>
+            <ViewsContainer>
+              <ViewsContent>{viewCount} views .</ViewsContent>
+              <ViewsContent>{publishedAt}</ViewsContent>
+            </ViewsContainer>
           </TitleContainer>
         </ProfileCont>
       </VideoItemContainer>

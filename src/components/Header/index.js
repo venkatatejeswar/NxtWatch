@@ -10,7 +10,7 @@ import {Component} from 'react'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Cookies from 'js-cookie'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import NxtContext from '../../context/NxtContext'
 
 import {
@@ -41,6 +41,7 @@ const Header = props => (
       const logo = isDark
         ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
         : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+
       const onClickLogout = () => {
         const {history} = props
         Cookies.remove('jwt_token')
@@ -48,7 +49,9 @@ const Header = props => (
       }
       return (
         <Navbar bgColor={bgColor}>
-          <Logo src={logo} alt="website logo" />
+          <Link to="/">
+            <Logo src={logo} alt="website logo" />
+          </Link>
           <MenuContainer>
             <ThemeButton
               type="button"
@@ -77,7 +80,7 @@ const Header = props => (
               {close => (
                 <PopupContainer>
                   <div>
-                    <p>Are you sure you want to logout?</p>
+                    <p>Are you sure, you want to logout</p>
                   </div>
                   <PopupBtnContainer>
                     <Popupbutton
@@ -85,7 +88,7 @@ const Header = props => (
                       className="trigger-button"
                       onClick={() => close()}
                     >
-                      Close
+                      Cancel
                     </Popupbutton>
                     <PopupLogoutbutton
                       type="button"

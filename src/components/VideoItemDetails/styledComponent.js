@@ -39,7 +39,7 @@ export const VideoPlayer = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
 `
-export const VideoTitle = styled.h1`
+export const VideoTitle = styled.p`
   color: ${props => props.titleColor};
   font-size: 18px;
   font-weight: 600;
@@ -119,7 +119,7 @@ export const ProfileDetailsCont = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `
-export const ProfileName = styled.h1`
+export const ProfileName = styled.p`
   font-size: 16px;
   color: ${props => props.textColor};
 `
@@ -132,4 +132,36 @@ export const Description = styled.p`
   font-size: 16px;
   color: #606060;
   font-weight: 400;
+`
+export const NoVideosContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.bgColor};
+`
+export const NovideoImage = styled.img`
+  width: 50%;
+`
+export const NoVideoTitle = styled.h1`
+  color: #1e293b;
+  font-size: 32px;
+  color: ${props => props.textColor};
+`
+export const NoVideoDesc = styled.p`
+  color: #475569;
+  font-size: 18px;
+  font-weight: 600;
+`
+export const RetryBtn = styled.button`
+  width: 80px;
+  padding: 8px;
+  background-color: #3b82f6;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #ffffff;
+  border-radius: 3px;
 `

@@ -7,6 +7,7 @@ import Trending from './components/Trending'
 import Gaming from './components/Gaming'
 import SavedVideos from './components/SavedVideos'
 import VideoItemDetails from './components/VideoItemDetails'
+import NotFound from './components/NotFound'
 import NxtContext from './context/NxtContext'
 import './App.css'
 
@@ -51,6 +52,8 @@ class App extends Component {
             path="/videos/:id"
             component={VideoItemDetails}
           />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect to="not-found" />
         </Switch>
       </NxtContext.Provider>
     )

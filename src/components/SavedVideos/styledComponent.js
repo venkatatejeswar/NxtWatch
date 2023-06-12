@@ -11,7 +11,6 @@ export const HomeContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   background-color: ${props => props.bgColor};
-  padding: 20px;
 `
 
 export const Navbar = styled.nav`
@@ -22,10 +21,7 @@ export const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
 `
-export const Logo = styled.img`
-  width: 140px;
-  height: 40px;
-`
+
 export const MenuContainer = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -90,7 +86,7 @@ export const VideosSection = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 90vh;
 `
 export const PremiumSubContainer = styled.div`
   background-color: ${props => props.bgColor};
@@ -100,7 +96,6 @@ export const PremiumSubContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
-  margin-top: 15px;
 `
 export const PremiumLogoContainer = styled.div`
   width: 70px;
@@ -111,46 +106,14 @@ export const PremiumLogoContainer = styled.div`
   align-items: center;
   background-color: #cbd5e1;
 `
-export const PremiumTitle = styled.p`
+export const PremiumTitle = styled.h1`
   color: ${props => props.titleColor};
   font-size: 22px;
   font-weight: 700;
   margin-left: 20px;
 `
-export const GetNowBtn = styled.button`
-  padding: 10px;
-  border: 1px solid #1e293b;
-  background-color: transparent;
-  color: #475569;
-  font-weight: 600;
-`
-export const HomeContentContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 25px;
-`
 
-export const HomeSearchContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-`
-
-export const HomeSearch = styled.input`
-  width: 70%;
-  max-width: 460px;
-  height: 30px;
-`
-export const SearchIconBtn = styled.button`
-  width: 40px;
-  height: 30px;
-`
-
-export const VideosContainer = styled.div`
+export const VideosContainer = styled.ul`
   width: 100%;
   height: 100%;
   display: flex;
@@ -158,4 +121,28 @@ export const VideosContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background-color: ${props => props.bgColor};
+  list-style-type: none;
+  margin-top: 0px;
+`
+export const NoVideosContainer = styled.div`
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.bgColor};
+`
+export const NovideoImage = styled.img`
+  width: 50%;
+`
+export const NoVideoTitle = styled.h1`
+  color: #1e293b;
+  font-size: 32px;
+  color: ${props => props.textColor};
+`
+export const NoVideoDesc = styled.p`
+  color: #475569;
+  font-size: 18px;
+  font-weight: 600;
 `

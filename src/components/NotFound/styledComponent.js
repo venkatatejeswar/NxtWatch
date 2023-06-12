@@ -22,10 +22,7 @@ export const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
 `
-export const Logo = styled.img`
-  width: 140px;
-  height: 40px;
-`
+
 export const MenuContainer = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -91,69 +88,31 @@ export const VideosSection = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: ${props => props.bgColor};
 `
 export const PremiumSubContainer = styled.div`
-  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png ');
+  background-color: ${props => props.bgColor};
   background-size: cover;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   padding: 20px;
   margin-top: 15px;
 `
 export const PremiumLogoContainer = styled.div`
-  width: 100%;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
   display: flex;
-  justify-content: space-between;
-  align-items: items;
-`
-export const PremiumTitle = styled.p`
-  color: #475569;
-  font-size: 18px;
-  width: 40%;
-  font-weight: 500;
-`
-export const GetNowBtn = styled.button`
-  padding: 10px;
-  border: 1px solid #1e293b;
-  background-color: transparent;
-  color: #475569;
-  font-weight: 600;
-`
-export const HomeContentContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 25px;
-`
-
-export const HomeSearchContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  background-color: ${props => props.bgColor};
+  background-color: #cbd5e1;
 `
-
-export const HomeSearch = styled.input`
-  width: 70%;
-  max-width: 460px;
-  height: 30px;
-  background-color: transparent;
-  border: 1px solid #616e7c;
-  color: ${props => props.textColor};
-`
-export const SearchIconBtn = styled.button`
-  width: 40px;
-  height: 30px;
-  border: 1px solid #616e7c;
-  color: ${props => props.iconcolor};
-  background-color: transparent;
+export const PremiumTitle = styled.h1`
+  color: ${props => props.titleColor};
+  font-size: 22px;
+  font-weight: 700;
+  margin-left: 20px;
 `
 
 export const VideosContainer = styled.ul`
@@ -187,14 +146,4 @@ export const NoVideoDesc = styled.p`
   color: #475569;
   font-size: 18px;
   font-weight: 600;
-`
-export const RetryBtn = styled.button`
-  width: 80px;
-  padding: 8px;
-  background-color: #3b82f6;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  color: #ffffff;
-  border-radius: 3px;
 `

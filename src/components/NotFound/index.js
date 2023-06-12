@@ -24,46 +24,20 @@ import {
   NoVideoDesc,
 } from './styledComponent'
 
-class SavedVideos extends Component {
-  renderPremiumImg = isDark => {
-    const bgColor = isDark ? '#212121' : '#f1f1f1'
-    const titleColor = isDark ? '#f1f1f1' : '#212121'
-    return (
-      <PremiumSubContainer bgColor={bgColor} data-testid="banner">
-        <PremiumLogoContainer>
-          <AiFillSave size={40} color=" #ff0b37" />
-        </PremiumLogoContainer>
-        <PremiumTitle titleColor={titleColor}>Saved Videos</PremiumTitle>
-      </PremiumSubContainer>
-    )
-  }
-
-  renderVideosList = (isDark, savedVideosList) => {
-    const bgColor = isDark ? '#000000' : '#f1f1f160'
-    return (
-      <VideosContainer bgColor={bgColor}>
-        {savedVideosList.map(video => (
-          <TrendingVideoItem
-            videoDet={video}
-            key={video.id}
-            isTrending="true"
-          />
-        ))}
-      </VideosContainer>
-    )
-  }
-
-  renderNoVideosView = isDark => {
+class NotFound extends Component {
+  renderNotFoundView = isDark => {
     const bgColor = isDark ? '#181818' : ' #f9f9f9'
     const textColor = isDark ? '#ffffff' : '#424242'
+    const image = isDark
+      ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png'
+      : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-light-theme-img.png'
     return (
       <NoVideosContainer bgColor={bgColor}>
-        <NovideoImage
-          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
-          alt="no saved videos"
-        />
-        <NoVideoTitle textColor={textColor}>No saved videos found</NoVideoTitle>
-        <NoVideoDesc>Save your videos by clicking a button</NoVideoDesc>
+        <NovideoImage src={image} alt="Not Found Image" />
+        <NoVideoTitle textColor={textColor}>Page Not Found</NoVideoTitle>
+        <NoVideoDesc>
+          we are sorry, the page you requested could not be found.
+        </NoVideoDesc>
       </NoVideosContainer>
     )
   }
@@ -84,14 +58,7 @@ class SavedVideos extends Component {
               <Header />
               <HomeContainer bgColor={bgColor}>
                 <Menu />
-                {isNoSaved ? (
-                  this.renderNoVideosView(isDark)
-                ) : (
-                  <VideosSection>
-                    {this.renderPremiumImg(isDark)}
-                    {this.renderVideosList(isDark, savedVideosList)}
-                  </VideosSection>
-                )}
+                {this.renderNotFoundView(isDark)}
               </HomeContainer>
             </AppContainer>
           )
@@ -101,4 +68,4 @@ class SavedVideos extends Component {
   }
 }
 
-export default SavedVideos
+export default NotFound

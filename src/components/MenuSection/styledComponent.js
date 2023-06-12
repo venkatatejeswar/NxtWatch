@@ -8,20 +8,20 @@ export const MenuContainer = styled.div`
   background-color: ${props => props.bgColor};
   width: 20vw;
   min-height: 90vh;
-  padding: 25px;
-  padding-top: 40px;
   @media screen and (max-width: 768px) {
     display: none;
   }
 `
 
-export const MenuSection = styled.div`
+export const MenuSection = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  list-style-type: none;
+  width: 100%;
 `
-export const MenuItem = styled.div`
+export const MenuItem = styled.nav`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -39,7 +39,7 @@ export const MenuTitle = styled.button`
   outline: none;
   background-color: transparent;
 `
-export const ContactsTitle = styled.h1`
+export const ContactsTitle = styled.p`
   color: #1e293b;
   font-size: 18px;
 `

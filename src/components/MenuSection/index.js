@@ -22,25 +22,25 @@ const Menu = () => (
       return (
         <MenuContainer bgColor={bgColor}>
           <MenuSection>
-            <MenuItem>
+            <MenuItem key="home">
               <AiFillHome size={20} color="#606060" />
               <Link to="/">
                 <MenuTitle color={color}>Home</MenuTitle>
               </Link>
             </MenuItem>
-            <MenuItem>
+            <MenuItem key="trending">
               <AiFillFire size={20} color="#606060" />
               <Link to="/trending">
                 <MenuTitle color={color}>Trending</MenuTitle>
               </Link>
             </MenuItem>
-            <MenuItem>
+            <MenuItem key="gaming">
               <SiYoutubegaming size={20} color="#606060" />
               <Link to="/gaming">
                 <MenuTitle color={color}>Gaming</MenuTitle>
               </Link>
             </MenuItem>
-            <MenuItem>
+            <MenuItem key="saved videos">
               <AiFillSave size={20} color="#606060" />
 
               <Link to="/saved-videos">

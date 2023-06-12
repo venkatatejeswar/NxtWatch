@@ -11,7 +11,6 @@ export const HomeContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   background-color: ${props => props.bgColor};
-  padding: 20px;
 `
 
 export const Navbar = styled.nav`
@@ -90,7 +89,8 @@ export const VideosSection = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  padding: 0px;
 `
 export const PremiumSubContainer = styled.div`
   background-color: ${props => props.bgColor};
@@ -100,7 +100,6 @@ export const PremiumSubContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
-  margin-top: 15px;
 `
 export const PremiumLogoContainer = styled.div`
   width: 70px;
@@ -111,7 +110,7 @@ export const PremiumLogoContainer = styled.div`
   align-items: center;
   background-color: #cbd5e1;
 `
-export const PremiumTitle = styled.p`
+export const PremiumTitle = styled.h1`
   color: ${props => props.titleColor};
   font-size: 24px;
   font-weight: 700;
@@ -150,7 +149,7 @@ export const SearchIconBtn = styled.button`
   height: 30px;
 `
 
-export const VideosContainer = styled.div`
+export const VideosContainer = styled.ul`
   width: 100%;
   height: 100%;
   display: flex;
@@ -158,4 +157,47 @@ export const VideosContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background-color: ${props => props.bgColor};
+  list-style-type: none;
+  margin-top: 0px;
+`
+
+export const FailureVideosContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.bgColor};
+`
+export const FailureVideoImage = styled.img`
+  width: 50%;
+`
+export const FailureVideoTitle = styled.h1`
+  color: #1e293b;
+  font-size: 32px;
+  color: ${props => props.textColor};
+`
+export const FailureVideoDesc = styled.p`
+  color: #475569;
+  font-size: 18px;
+  font-weight: 600;
+`
+export const RetryBtn = styled.button`
+  width: 80px;
+  padding: 8px;
+  background-color: #3b82f6;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #ffffff;
+  border-radius: 3px;
+`
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
 `

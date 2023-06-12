@@ -14,7 +14,7 @@ const GamingVideoItem = props => {
   return (
     <Link to={`/videos/${id}`} style={{textDecoration: 'none'}}>
       <VideoItemContainer>
-        <ThumbNail src={thumbnailUrl} alt="thumbnail" />
+        <ThumbNail src={thumbnailUrl} alt="video thumbnail" />
         <ProfileCont>
           <TitleContainer>
             <Title>{title}</Title>

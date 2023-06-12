@@ -75,7 +75,6 @@ class Home extends Component {
         title: video.title,
         viewCount: video.view_count,
       }))
-      console.log(videosList.length)
       if (videosList.length === 0) {
         this.setState({videosList, apiStatus: apiConstants.novideos})
       } else {
@@ -127,13 +126,16 @@ class Home extends Component {
     const {searchVal} = this.state
     const bgColor = isDark ? '#181818' : ' #f9f9f9'
     const iconColor = isDark ? ' #f9f9f9' : '#181818'
+    const textColor = isDark ? '#ffffff' : '#424242'
     return (
       <HomeContentContainer>
         <HomeSearchContainer bgColor={bgColor}>
           <HomeSearch
+            type="search"
             placeholder="Search"
             onChange={this.onSearchInput}
             value={searchVal}
+            textColor={textColor}
           />
           <SearchIconBtn
             iconcolor={iconColor}
@@ -190,7 +192,7 @@ class Home extends Component {
       <NoVideosContainer bgColor={bgColor}>
         <NovideoImage src={image} alt="failure view" />
         <NoVideoTitle textColor={textColor}>
-          Oops!Something Went Wrong!
+          Oops!Something Went Wrong
         </NoVideoTitle>
         <NoVideoDesc>
           We are having some trouble to complete your request.

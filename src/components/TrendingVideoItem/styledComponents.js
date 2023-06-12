@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const VideoItemContainer = styled.div`
+export const VideoItemContainer = styled.li`
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -32,7 +32,7 @@ export const ProfileImg = styled.img`
   height: 50px;
 `
 export const Title = styled.p`
-  color: #383838;
+  color: ${props => props.fontColor};
   font-size: 14px;
   font-weight: 600;
 `
@@ -44,7 +44,7 @@ export const TitleContainer = styled.div`
   align-items: flex-start;
   margin-left: 20px;
 `
-export const ChannelName = styled.h1`
+export const ChannelName = styled.p`
   color: #7e858e;
   font-size: 15px;
   margin-top: 0px;
@@ -54,4 +54,9 @@ export const ViewsContent = styled.p`
   font-size: 14px;
   margin-top: 0px;
   font-weight: 600;
+`
+export const ViewsContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `
