@@ -111,9 +111,7 @@ class VideoItemDetails extends Component {
           Oops! Something Went Wrong
         </NoVideoTitle>
         <NoVideoDesc>
-          We are having some trouble to complete your request.
-          <br />
-          Please try again
+          We are having some trouble to complete your request. Please try again.
         </NoVideoDesc>
         <RetryBtn onClick={this.onRetry}>Retry</RetryBtn>
       </NoVideosContainer>
@@ -168,8 +166,10 @@ class VideoItemDetails extends Component {
         </VideoPlayer>
         <VideoTitle titleColor={textColor}>{title}</VideoTitle>
         <VideoDetailsContainer>
-          <ViewsContainer>{viewCount} views .</ViewsContainer>
-          <ViewsContainer>{formattedDate.slice(6)} ago</ViewsContainer>
+          <ReactionsContainer>
+            <ViewsContainer>{viewCount} views .</ViewsContainer>
+            <ViewsContainer>{publishedAt}</ViewsContainer>
+          </ReactionsContainer>
           <ReactionsContainer>
             <LikeBtn onClick={this.onLikeReaction} likeStyle={likeStyle}>
               <AiOutlineLike size={25} /> Like

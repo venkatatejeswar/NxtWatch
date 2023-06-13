@@ -11,6 +11,7 @@ import {
   ChannelName,
   TitleContainer,
   ViewsContent,
+  ViewsCont,
 } from './styledComponents'
 
 const VideoItem = props => {
@@ -28,9 +29,10 @@ const VideoItem = props => {
           <TitleContainer>
             <Title fontCol={fontColor}>{title}</Title>
             <ChannelName>{channel.name}</ChannelName>
-            <ViewsContent>
-              {viewCount} views . {FormatTime.slice(-8)} ago
-            </ViewsContent>
+            <ViewsCont>
+              <ViewsContent>{viewCount} views .</ViewsContent>
+              <ViewsContent>{publishedAt}</ViewsContent>
+            </ViewsCont>
           </TitleContainer>
         </ProfileCont>
       </VideoItemContainer>

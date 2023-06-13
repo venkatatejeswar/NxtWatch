@@ -40,7 +40,7 @@ export const TitleContainer = styled.div`
 
   margin-left: 20px;
 `
-export const ChannelName = styled.h1`
+export const ChannelName = styled.p`
   color: #7e858e;
   font-size: 15px;
   margin-top: 0px;
@@ -50,4 +50,9 @@ export const ViewsContent = styled.p`
   font-size: 14px;
   margin-top: 0px;
   font-weight: 600;
+`
+export const ViewsCont = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `

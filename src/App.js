@@ -19,7 +19,7 @@ const hamburgerItems = {
 }
 
 class App extends Component {
-  state = {savedVideosList: [], isDark: false, activeItem: hamburgerItems.menu}
+  state = {savedVideosList: [], isDark: false, activeItem: ''}
 
   saveVideo = video => {
     const {savedVideosList} = this.state

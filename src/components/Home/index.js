@@ -28,6 +28,7 @@ import {
   NoVideoTitle,
   NoVideoDesc,
   RetryBtn,
+  Closebutton,
 } from './styledComponents'
 
 const apiConstants = {
@@ -110,11 +111,9 @@ class Home extends Component {
           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
           alt="nxt watch logo"
         />
-        <GrFormClose
-          size={25}
-          onClick={this.onClosePremium}
-          data-testid="close"
-        />
+        <Closebutton data-testid="close">
+          <GrFormClose size={25} onClick={this.onClosePremium} />
+        </Closebutton>
       </PremiumLogoContainer>
       <PremiumTitle>Buy Nxt Watch Premium Prepaid Plans with UPI</PremiumTitle>
       <GetNowBtn>GET IT NOW</GetNowBtn>
@@ -140,7 +139,7 @@ class Home extends Component {
             iconcolor={iconColor}
             data-testid="searchButton"
             type="button"
-            onSubmit={this.onSearchSubmit}
+            onClick={this.onSearchSubmit}
           >
             <FaSearch size={15} />
           </SearchIconBtn>

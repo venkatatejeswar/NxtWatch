@@ -1,4 +1,7 @@
 import {Link} from 'react-router-dom'
+
+import {AiFillHome, AiFillFire, AiFillSave} from 'react-icons/ai'
+import {SiYoutubegaming} from 'react-icons/si'
 import NxtContext from '../../context/NxtContext'
 import {MenuItem, MenuTitle} from './styledComponent'
 
@@ -15,10 +18,16 @@ const MenuItems = props => {
         const ChangeActive = () => {
           onChangeActive(id)
         }
+        const menuIcons = {
+          home: <AiFillHome size={20} color={activeColor} />,
+          trending: <AiFillFire size={20} color={activeColor} />,
+          gaming: <SiYoutubegaming size={20} color={activeColor} />,
+          saved: <AiFillSave size={20} color={activeColor} />,
+        }
         return (
           <Link to={path} style={{textDecoration: 'none'}}>
             <MenuItem onClick={ChangeActive} color={activeColor}>
-              {icon}
+              {menuIcons[id]}
               <MenuTitle color={activeColor}>{title}</MenuTitle>
             </MenuItem>
           </Link>

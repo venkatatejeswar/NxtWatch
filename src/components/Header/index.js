@@ -1,6 +1,7 @@
 import {FaMoon} from 'react-icons/fa'
 import {GiHamburgerMenu} from 'react-icons/gi'
-import {GrLogout} from 'react-icons/gr'
+import {GrLogout, GrFormClose} from 'react-icons/gr'
+import {FiLogOut} from 'react-icons/fi'
 import {CgSun} from 'react-icons/cg'
 import {Component} from 'react'
 import Popup from 'reactjs-popup'
@@ -8,6 +9,7 @@ import 'reactjs-popup/dist/index.css'
 import Cookies from 'js-cookie'
 import {withRouter, Link} from 'react-router-dom'
 import NxtContext from '../../context/NxtContext'
+import MenuItems from '../MenuItem'
 
 import {
   HeaderContainer,
@@ -23,7 +25,33 @@ import {
   Popupbutton,
   PopupBtnContainer,
   PopupLogoutbutton,
+  MenuItemsContainer,
+  CloseBtnContainer,
+  Closebutton,
 } from './styledComponents'
+
+const menuContent = [
+  {
+    id: 'home',
+    title: 'Home',
+    path: '/',
+  },
+  {
+    id: 'trending',
+    title: 'Trending',
+    path: '/trending',
+  },
+  {
+    id: 'gaming',
+    title: 'Gaming',
+    path: '/gaming',
+  },
+  {
+    id: 'saved',
+    title: 'Saved Videos',
+    path: '/saved-videos',
+  },
+]
 
 const Header = props => (
   <NxtContext.Consumer>
@@ -60,15 +88,41 @@ const Header = props => (
                 <FaMoon size={30} color={logoColor} />
               )}
             </ThemeButton>
-            <MenuButton type="button">
-              <GiHamburgerMenu size={30} color={logoColor} />
-            </MenuButton>
+
+            <Popup
+              modal
+              trigger={
+                <MenuButton type="button">
+                  <GiHamburgerMenu size={30} color={logoColor} />
+                </MenuButton>
+              }
+              contentStyle={{width: '95%', borderRadius: '10px'}}
+            >
+              {close => (
+                <PopupContainer bgColor={bgColor}>
+                  <CloseBtnContainer>
+                    <Closebutton
+                      type="button"
+                      className="trigger-button"
+                      onClick={() => close()}
+                    >
+                      <GrFormClose size={25} />
+                    </Closebutton>
+                  </CloseBtnContainer>
+                  <MenuItemsContainer>
+                    {menuContent.map(each => (
+                      <MenuItems key={each.id} menu={each} />
+                    ))}
+                  </MenuItemsContainer>
+                </PopupContainer>
+              )}
+            </Popup>
 
             <Popup
               modal
               trigger={
                 <LogoutButton type="button">
-                  <GrLogout size={30} color={logoColor} />
+                  <FiLogOut size={30} color={logoColor} />
                 </LogoutButton>
               }
               contentStyle={{width: '340px', borderRadius: '10px'}}

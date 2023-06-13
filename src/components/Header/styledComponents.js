@@ -90,6 +90,7 @@ export const PopupContainer = styled.div`
   width: 100%;
   color: #00306e;
   font-weight: 700;
+  background-color: ${props => props.bgColor};
 `
 export const Popupbutton = styled.button`
   width: 80px;
@@ -101,6 +102,16 @@ export const Popupbutton = styled.button`
   cursor: pointer;
   outline: none;
   border-radius: 2px;
+`
+
+export const Closebutton = styled.button`
+  width: 80px;
+  padding: 8px;
+  color: #7e858e;
+  background-color: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
 `
 
 export const PopupLogoutbutton = styled.button`
@@ -121,4 +132,16 @@ export const PopupBtnContainer = styled.div`
   align-items: center;
   width: 60%;
   margin: 20px;
+`
+export const CloseBtnContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+`
+export const MenuItemsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 `

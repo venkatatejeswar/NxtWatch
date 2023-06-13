@@ -93,7 +93,7 @@ export const VideosSection = styled.div`
   background-color: ${props => props.bgColor};
 `
 export const PremiumSubContainer = styled.div`
-  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png ');
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
   background-size: cover;
   width: 100%;
   display: flex;
@@ -195,4 +195,13 @@ export const RetryBtn = styled.button`
   outline: none;
   color: #ffffff;
   border-radius: 3px;
+`
+export const Closebutton = styled.button`
+  width: 80px;
+  padding: 8px;
+  color: #7e858e;
+  background-color: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
 `

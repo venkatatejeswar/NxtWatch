@@ -17,7 +17,7 @@ const TrendingVideoItem = props => {
   const {videoDet, isDark} = props
   const {id, channel, publishedAt, thumbnailUrl, title, viewCount} = videoDet
   const date = new Date(publishedAt)
-  const FormatTime = formatDistanceToNow(date).slice(-7)
+  const FormatTime = formatDistanceToNow(date)
   const fontColor = isDark ? '#ffffff' : '#383838'
   return (
     <Link to={`/videos/${id}`} style={{textDecoration: 'none'}}>
