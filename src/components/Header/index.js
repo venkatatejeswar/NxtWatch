@@ -1,9 +1,8 @@
 import {FaMoon} from 'react-icons/fa'
 import {GiHamburgerMenu} from 'react-icons/gi'
-import {GrLogout, GrFormClose} from 'react-icons/gr'
+import {GrFormClose} from 'react-icons/gr'
 import {FiLogOut} from 'react-icons/fi'
 import {CgSun} from 'react-icons/cg'
-import {Component} from 'react'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Cookies from 'js-cookie'
@@ -12,7 +11,6 @@ import NxtContext from '../../context/NxtContext'
 import MenuItems from '../MenuItem'
 
 import {
-  HeaderContainer,
   Navbar,
   Logo,
   MenuContainer,
@@ -56,7 +54,7 @@ const menuContent = [
 const Header = props => (
   <NxtContext.Consumer>
     {value => {
-      const {isDark, changeTheme} = value
+      const {isDark, changeTheme, onChangeActive} = value
       const onChangeTheme = () => {
         changeTheme()
       }
@@ -71,10 +69,14 @@ const Header = props => (
         Cookies.remove('jwt_token')
         history.replace('/login')
       }
+
+      const ChangeActive = () => {
+        onChangeActive('home')
+      }
       return (
         <Navbar bgColor={bgColor}>
           <Link to="/">
-            <Logo src={logo} alt="website logo" />
+            <Logo src={logo} alt="website logo" onClick={ChangeActive} />
           </Link>
           <MenuContainer>
             <ThemeButton

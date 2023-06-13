@@ -81,50 +81,7 @@ export const LogoutBtn = styled.button`
     display: none;
   }
 `
-export const VideosSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-`
-export const PremiumSubContainer = styled.div`
-  background-color: ${props => props.bgColor};
-  background-size: cover;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 20px;
-  margin-top: 15px;
-`
-export const PremiumLogoContainer = styled.div`
-  width: 70px;
-  height: 70px;
-  border-radius: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #cbd5e1;
-`
-export const PremiumTitle = styled.h1`
-  color: ${props => props.titleColor};
-  font-size: 22px;
-  font-weight: 700;
-  margin-left: 20px;
-`
 
-export const VideosContainer = styled.ul`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: ${props => props.bgColor};
-  list-style-type: none;
-`
 export const NoVideosContainer = styled.div`
   width: 100%;
   height: 100%;

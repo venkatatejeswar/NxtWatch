@@ -1,13 +1,5 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: ${props => props.bgColor};
-`
-
 export const Navbar = styled.nav`
   max-width: 100vw;
   min-height: 80px;

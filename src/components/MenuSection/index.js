@@ -1,12 +1,7 @@
-import {AiFillHome, AiFillFire, AiFillSave} from 'react-icons/ai'
-import {SiYoutubegaming} from 'react-icons/si'
-import {Link} from 'react-router-dom'
 import NxtContext from '../../context/NxtContext'
 import MenuItems from '../MenuItem'
 import {
   MenuContainer,
-  MenuItem,
-  MenuTitle,
   MenuSection,
   ContactsTitle,
   LogoContainer,
@@ -18,25 +13,21 @@ const menuContent = [
   {
     id: 'home',
     title: 'Home',
-    icon: <AiFillHome size={20} color="#606060" />,
     path: '/',
   },
   {
     id: 'trending',
     title: 'Trending',
-    icon: <AiFillFire size={20} color="#606060" />,
     path: '/trending',
   },
   {
     id: 'gaming',
     title: 'Gaming',
-    icon: <SiYoutubegaming size={20} color="#606060" />,
     path: '/gaming',
   },
   {
     id: 'saved',
     title: 'Saved Videos',
-    icon: <AiFillSave size={20} color="#606060" />,
     path: '/saved-videos',
   },
 ]
@@ -44,9 +35,8 @@ const menuContent = [
 const Menu = () => (
   <NxtContext.Consumer>
     {value => {
-      const {isDark, onChangeActive, activeItem} = value
+      const {isDark} = value
       const bgColor = isDark ? '#181818' : ' #f9f9f9'
-      const color = isDark ? ' #f9f9f9' : ' #475569'
       return (
         <MenuContainer bgColor={bgColor}>
           <MenuSection>

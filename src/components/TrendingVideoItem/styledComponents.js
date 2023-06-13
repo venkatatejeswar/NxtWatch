@@ -27,10 +27,7 @@ export const ProfileCont = styled.div`
     width: 90%;
   }
 `
-export const ProfileImg = styled.img`
-  width: 50px;
-  height: 50px;
-`
+
 export const Title = styled.p`
   color: ${props => props.fontColor};
   font-size: 14px;

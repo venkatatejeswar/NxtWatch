@@ -1,6 +1,4 @@
-import {FaSearch} from 'react-icons/fa'
 import {AiOutlineLike, AiOutlineDislike, AiOutlineSave} from 'react-icons/ai'
-import {GrFormClose} from 'react-icons/gr'
 import ReactPlayer from 'react-player'
 import Loader from 'react-loader-spinner'
 import {Component} from 'react'
@@ -143,7 +141,6 @@ class VideoItemDetails extends Component {
       id,
       channel,
       publishedAt,
-      thumbnailUrl,
       title,
       viewCount,
       videoUrl,
@@ -213,15 +210,11 @@ class VideoItemDetails extends Component {
   }
 
   render() {
-    const {isLoading} = this.state
     return (
       <NxtContext.Consumer>
         {value => {
           const {isDark, saveVideo, savedVideosList} = value
           const bgColor = isDark ? '#0f0f0f' : '#f9f9f9 '
-          const logo = isDark
-            ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-            : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
           return (
             <AppContainer bgColor={bgColor} data-testid="videoItemDetails">
               <Header />

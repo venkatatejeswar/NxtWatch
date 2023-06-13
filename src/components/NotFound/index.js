@@ -1,23 +1,11 @@
-import {FaSearch} from 'react-icons/fa'
-
-import {GrFormClose} from 'react-icons/gr'
-import {AiFillSave} from 'react-icons/ai'
-
 import {Component} from 'react'
-import Cookies from 'js-cookie'
 import Header from '../Header'
 import Menu from '../MenuSection'
-import TrendingVideoItem from '../TrendingVideoItem'
 import NxtContext from '../../context/NxtContext'
 
 import {
   AppContainer,
   HomeContainer,
-  VideosSection,
-  PremiumSubContainer,
-  PremiumLogoContainer,
-  PremiumTitle,
-  VideosContainer,
   NoVideosContainer,
   NovideoImage,
   NoVideoTitle,
@@ -48,9 +36,6 @@ class NotFound extends Component {
         {value => {
           const {isDark, savedVideosList} = value
           const bgColor = isDark ? '#0f0f0f' : ' #f9f9f9'
-          const logo = isDark
-            ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-            : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
           const isNoSaved = savedVideosList.length === 0
           console.log(isNoSaved)
           return (

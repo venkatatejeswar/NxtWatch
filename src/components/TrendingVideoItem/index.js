@@ -5,7 +5,6 @@ import {
   VideoItemContainer,
   ThumbNail,
   ProfileCont,
-  ProfileImg,
   Title,
   ChannelName,
   TitleContainer,

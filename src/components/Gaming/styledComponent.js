@@ -21,10 +21,7 @@ export const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
 `
-export const Logo = styled.img`
-  width: 140px;
-  height: 40px;
-`
+
 export const MenuContainer = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -115,39 +112,6 @@ export const PremiumTitle = styled.h1`
   font-weight: 700;
   margin-left: 20px;
 `
-export const GetNowBtn = styled.button`
-  padding: 10px;
-  border: 1px solid #1e293b;
-  background-color: transparent;
-  color: #475569;
-  font-weight: 600;
-`
-export const HomeContentContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 25px;
-`
-
-export const HomeSearchContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-`
-
-export const HomeSearch = styled.input`
-  width: 70%;
-  max-width: 460px;
-  height: 30px;
-`
-export const SearchIconBtn = styled.button`
-  width: 40px;
-  height: 30px;
-`
-
 export const VideosContainer = styled.ul`
   width: 100%;
   height: 100%;

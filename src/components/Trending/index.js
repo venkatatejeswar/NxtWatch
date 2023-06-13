@@ -1,6 +1,3 @@
-import {FaSearch} from 'react-icons/fa'
-
-import {GrFormClose} from 'react-icons/gr'
 import {AiFillFire} from 'react-icons/ai'
 import Loader from 'react-loader-spinner'
 import {Component} from 'react'
@@ -12,16 +9,10 @@ import NxtContext from '../../context/NxtContext'
 
 import {
   HomeContainer,
-  Logo,
   VideosSection,
   PremiumSubContainer,
   PremiumLogoContainer,
   PremiumTitle,
-  GetNowBtn,
-  HomeContentContainer,
-  HomeSearch,
-  HomeSearchContainer,
-  SearchIconBtn,
   VideosContainer,
   AppContainer,
   FailureVideosContainer,
@@ -155,9 +146,6 @@ class Trending extends Component {
         {value => {
           const {isDark} = value
           const bgColor = isDark ? '#0f0f0f' : ' #f9f9f9'
-          const logo = isDark
-            ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-            : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
           return (
             <AppContainer data-testid="trending" bgColor={bgColor}>
               <Header />

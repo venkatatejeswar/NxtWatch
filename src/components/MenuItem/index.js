@@ -7,12 +7,11 @@ import {MenuItem, MenuTitle} from './styledComponent'
 
 const MenuItems = props => {
   const {menu} = props
-  const {id, title, icon, path} = menu
+  const {id, title, path} = menu
   return (
     <NxtContext.Consumer>
       {value => {
         const {isDark, onChangeActive, activeItem} = value
-        const bgColor = isDark ? '#181818' : ' #f9f9f9'
         const icolor = isDark ? ' #f9f9f9' : ' #475569'
         const activeColor = activeItem === id ? '#ff0000' : icolor
         const ChangeActive = () => {

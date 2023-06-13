@@ -21,24 +21,6 @@ export const MenuSection = styled.ul`
   list-style-type: none;
   width: 100%;
 `
-export const MenuItem = styled.nav`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-`
-export const MenuTitle = styled.button`
-  font-size: 16px;
-  color: ${props => props.color};
-  font-weight: 500;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  background-color: transparent;
-`
 export const ContactsTitle = styled.p`
   color: #1e293b;
   font-size: 18px;
